@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div id="content">
+			<div class="content-top">
+				<span>ToDoList</span>
+				<input type="text" placeholder="添加ToDo">
+			</div>
+			<div class="content-bottom">
+				<div class="bottom going">
+					<span class="sp1">正在进行</span>
+					<span class="sp2">0</span>
+				</div>
+				
+				<!-- 正在进行内容 -->
+				<div class="Going-main"></div>
+				
+				<div class="bottom finish">
+					<span class="sp1">已经完成</span>
+					<span class="sp2">0</span>
+				</div>
+				
+				<!-- 已经完成内容 -->
+				<div class="Finish-main"></div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/Fun.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//获取焦点清空placeholder
+		$(".content-top input").focus(function() {
+			$(this).attr("placeholder", "");
+		});
+		
+		//失去焦点添加placeholder
+		$("input").blur(function() {
+			$(this).attr("placeholder", "添加ToDo");
+		});
+		
+		// 按下回车事件 添加到正在进行
+		$(".content-top input").bind("keypress", function(event){
+			if(event.keyCode == "13"){
+				let value = $(this).val();
+				if(value != ""){
+					let oGoingMain = document.getElementsByClassName("Going-main")[0];
+					oGoingMain.innerHTML += `
+						<div class="going-main">
+							<span class="green"></span>
+							<span class="going-flag" style="display:none"></span>
+							<input type="checkbox" class="going-check">
+							<span class="text">${value}</span>
+							<img src="img/del.png">
+						</div>
+					`;
+					
+					//改变正在进行条数
+					let goingNum = $(".going .sp2").html();
+					goingNum++;
+					$(".going .sp2").html(goingNum);
+					
+					//按回车时将数据添加到cookie
+					$(".going-main .going-flag").eq(goingNum-1).html(goingNum);
+					setCookie("going"+goingNum, value, 7);
+					setCookie("going-num", goingNum, 7);
+					
+					$(this).val(""); // 每次回车输入框置空
+				}else{
+					alert("请输入值！");
+				}
+				
+				// let oGoings = document.getElementsByClassName("going-main");
+				// $(".going .sp2").html(oGoings.length);
+				
+				/*******************************************************************/
+				//存cookie 每条value值 期限 重要的是key，每次key值相同但哪一次不同(标志位)
+				// setCookie("going", value, 7);
+				// setCookie("going-num", oGoings.length, 7);
+				/*******************************************************************/
+				
+				//点击删除
+				$(".going-main img").bind("click" ,function(){
+					$(this).parent().remove();
+					// $(".going .sp2").html(oGoings.length);
+					
+					//改变正在进行条数
+					let goingNum = $(".going .sp2").html();
+					goingNum--;
+					$(".going .sp2").html(goingNum);
+					
+					//删除cookie
+					setCookie("going"+$(this).prev().prev().prev().html(), null, -1);
+					setCookie("going-num", goingNum, 7);
+				});
+				
+				// 点击正在进行复选框
+				$(".going-check").each(function(index, item){
+					let oFinishMain = document.getElementsByClassName("Finish-main")[0];
+					// let oGoings = document.getElementsByClassName("going-main");
+					
+					$(this).click(function(){ // 点击复选框
+						let value = $(this).parent().find(".text").html(); // 获取到当前点击框的值
+						
+						//改变正在进行条数
+						let goingNum = $(".going .sp2").html();
+						goingNum--;
+						$(".going .sp2").html(goingNum);
+						
+						//更新正在进行cookie(移除)
+						setCookie("going"+$(this).prev().html(), null, -1);
+						setCookie("going-num", goingNum, 7);
+						
+						//改变已经完成条数
+						let finishNum = $(".finish .sp2").html();
+						finishNum++;
+						$(".finish .sp2").html(finishNum);
+						
+						//更新正在进行cookie
+						setCookie("finish"+finishNum, value, 7);
+						setCookie("finish-num", finishNum, 7);
+						
+						$(this).parent().remove(); // 将点击本条移除掉
+						// 将上面移除的拼接到下面
+						oFinishMain.innerHTML += `
+							<div class="finish-main">
+								<span class="gray"></span>
+								<input type="checkbox" checked disabled class="finish-check">
+								<span class="text">${value}</span>
+								<img src="img/del.png">
+							</div>
+						`;
+					});
+				});
+			}
+		});
+		
+		//点击删除
+		// $(".going-main").on("click", "img" ,function(){
+		// 	$(this).parent().remove();
+		// 	// $(".going .sp2").html(oGoings.length);
+			
+		// 	//改变正在进行条数
+		// 	let goingNum = $(".going .sp2").html();
+		// 	goingNum--;
+		// 	$(".going .sp2").html(goingNum);
+			
+		// 	//删除cookie
+		// 	setCookie("going"+Number(goingNum+1), null, -1);
+		// 	setCookie("going-num", goingNum, 7);
+		// });
+		
+		//渲染cookie
+		//渲染正在进行
+		let g = 1;
+		let oGoingMain = document.getElementsByClassName("Going-main")[0];
+		if(getCookie("going-num") != undefined){
+			while(g <= getCookie("going-num")){
+				oGoingMain.innerHTML += `
+					<div class="going-main">
+						<span class="green"></span>
+						<input type="checkbox" class="going-check">
+						<span class="text">${getCookie("going"+g)}</span>
+						<img src="img/del.png">
+					</div>
+				`;
+				g++;
+			}
+		}
+		
+		//渲染已经完成
+		let f = 1;
+		let oFinishMain = document.getElementsByClassName("Finish-main")[0];
+		if(getCookie("finish-num") != undefined){
+			while(f <= getCookie("finish-num")){
+				oFinishMain.innerHTML += `
+					<div class="finish-main">
+						<span class="gray"></span>
+						<input type="checkbox" checked disabled class="finish-check">
+						<span class="text">${getCookie("finish"+f)}</span>
+						<img src="img/del.png">
+					</div>
+				`;
+				f++;
+			}
+		}
+	});
+</script>
