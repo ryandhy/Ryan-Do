@@ -1,0 +1,505 @@
+.tip-text{
+	width: 100%;
+	background-color: #eee;
+	position: relative;
+}
+.tip-text p{
+	max-width: 1000px;
+	margin: 0 auto;
+	padding-top: 20px;
+	font-size: 12px;
+	color: #000;
+	line-height: 16px;
+	padding-bottom: 20px;
+}
+.close{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: url(../img/X-copy.png) no-repeat;
+	top: 20px;
+	right: 20px;
+	cursor:pointer;
+}
+.progress{
+	position: relative;
+	width: 486px;
+	padding: 0;
+	margin: 40px auto 34px;
+	height:46px;
+}
+.progress>ul>li{
+	float: left;
+	width: 33.333333%;
+	text-align: center;
+}
+.progress>ul>li a{
+	display: block;
+	color: black;
+	font-size: 14px;
+	cursor: default;
+	padding-bottom: 10px;
+}
+.progress>ul>li i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+.step i{
+	background: url(../img/black.png) no-repeat center center;
+}
+.step1 i{
+	background: url(../img/white.png) no-repeat center center;
+}
+.line:before{
+	content: "";
+	height: 1px;
+	background-color: #979797;
+	left: 18.7%;
+	position: absolute;
+	top: 75%;
+	width: 142px;
+}
+.step1:before{
+	content: "";
+	height: 1px;
+	background-color: #979797;
+	left: 52.1%;
+	position: absolute;
+	top: 75%;
+	width: 142px;
+}
+
+#container{
+	max-width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+.all-title{
+	font-size: 22px;
+	line-height: 22px;
+	color: #333;
+	margin-bottom: 24px;
+}
+.adress .all-title{
+	padding-bottom: 20px;
+	margin-bottom: 0;
+	border-bottom: 2px solid #b7b7b7;
+}
+.adressBox{
+	padding: 28px 0 0;
+}
+.adressBox .form-group {
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+    height: 41px;
+}
+.adressBox .form-group label {
+    display: inline-block;
+    width: 15.2%;
+    line-height: 40px;
+    font-size: 14px;
+}
+.adressBox .form-group label span{
+	color: #9f1914;
+}
+
+.adressBox .form-input{
+	display: inline-block;
+	width: 80%;
+}
+.adressBox .form-input input{
+	border: 1px solid #bdbdbd;
+    width: 92.8%;
+    padding-left: 20px;
+    height: 36px;
+}
+.adressBox .tar {
+    text-align: right;
+}
+.form-selects{
+	display: inline-block;
+	width: 80%;
+}
+.col-12-4{
+	float: left;
+	width: 32%;
+	height:100%;
+}
+.form-select{
+	width: 94%;
+	position: relative;
+}
+.form-select a{
+	display: block;
+	padding: 5px 10px;
+	height: 28px;
+	font-weight: normal;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #363d4c;
+	background-color: #fff;
+	line-height: 28px;
+	border: 1px solid #bdbdbd;
+}
+.form-select a span{
+	display: inline-block;
+	width: 90%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.form-select select{
+	height: 96%;
+	left: 0;
+	position: absolute;
+	top: 2px;
+	font-size: 16px;
+	width: 100%;
+	opacity:0;
+}
+.icon-button{
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid;
+	margin-left: 3px;
+	position: absolute;
+	top: 20px;
+	margin-top: -2px;
+	right: 7px;
+}
+.adressBox .save-address-box>div a {
+    width: 37%;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+}
+.adressBox .save-address-box>div p {
+    color: red;
+    position: absolute;
+    left: 274px;
+    top: 5px;
+}
+.goods-info{
+	position: relative;
+	margin-top: 60px;
+}
+.left-button{
+	position: absolute;
+	border-bottom: 1px solid #000;
+	top: 14px;
+	right: 0;
+}
+.info-table{
+	height: 48px;
+	border: 1px solid #b7b7b7;
+	margin-bottom: 0;
+}
+.info-table .info-box-1{
+	width: 159px;
+	padding-left: 63px;
+}
+.info-table ul li{
+	float: left;
+	font-size: 18px;
+	color: #333;
+	line-height: 48px;
+}
+.goods-info .info-main .goods {
+	padding: 16px 0 4px;
+    border-bottom: 1px dashed #b6b6b6;
+}
+.goods-info .info-main .clear{
+    width: 1000px;
+	height: 101px!important;
+}
+.goods-info .info-main .goods .box-1 {
+    width: 205px;
+    padding-right: 45px;
+    overflow: hidden;
+}
+.goods-info .info-main .goods .box-1 a{
+	display:block;
+}
+.goods-info .info-main .goods .box-1 a span{
+	float: left;
+    vertical-align: top;
+    padding-top: 23px;
+    line-height: 18px;
+    width: 120px;
+    height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.goods-info .info-main .goods>div {
+    float: left;
+    font-size: 14px;
+}
+.goods-info .info-main .goods .box-2 {
+    width: 122px;
+    line-height: 80px;
+}
+.goods-info .info-main .goods .box-3 {
+    width: 118px;
+    line-height: 80px;
+}
+.goods-info .info-main .goods .box-4 {
+    width: 110px;
+    line-height: 80px;
+}
+.goods-info .info-main .goods .box-5 {
+    width: 82px;
+    line-height: 80px;
+}
+.goods-info .info-main .goods .box-6 {
+	width: 100px;
+	line-height: 80px;
+	text-align: center;
+}
+.goods-info .info-main .goods .box-7 {
+    width: 114px;
+    line-height: 80px;
+    text-align: center;
+}
+.goods-info .info-main .goods .box-8 {
+    width: 74px;
+    line-height: 80px;
+    text-align: center;
+}
+.goods-info .settle div{
+	width: 315px;
+	position:relative;
+}
+.goods-info .settle div span{
+	float: left;
+	width: 120px;
+}
+.goods-info .settle .box-1 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.goods-info .settle .box-1>span {
+    position: absolute;
+    left: -24px;
+    top: 10px;
+}
+.goods-info .settle>div .w75 {
+    width: 75px;
+}
+.goods-info .settle .form-select {
+    position: relative;
+    width: 240px;
+    display: inline-block;
+}
+.goods-info .settle>div>div {
+    float: right;
+}
+.goods-info .settle .form-select .btn {
+    display: block;
+    padding: 5px 10px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #bdbdbd;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    white-space: nowrap;
+}
+.goods-info .settle .box-2, .goods-info .settle .box-3 {
+    margin-bottom: 9px;
+    font-size: 18px;
+}
+.goods-info .settle>div>span {
+    float: left;
+    width: 120px;
+}
+.goods-info .settle>div .tar {
+    text-align: right;
+}
+.goods-info .settle .box-4 {
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+
+.all-title2 {
+    font-size: 26px;
+    color: #000;
+    line-height: 26px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid #b7b7b7;
+}
+.payment-tit {
+    font-size: 18px;
+    color: #333;
+    line-height: 12px;
+    margin: 21px 0 17px;
+}
+.payment-list{
+	position: relative;
+	float: left;
+	padding-left: 21px;
+	cursor: pointer;
+	margin-bottom:24px;
+}
+.payment-list .active{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 16px;
+    width: 16px;
+    margin-top: -8px;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url(../img/order/checkbox_3.png);
+}
+.payment-list i{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 16px;
+    width: 16px;
+    margin-top: -8px;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url(../img/order/checkbox_4.png);
+}
+.invoice-tit {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 18px;
+}
+.invoice-type {
+    padding-bottom: 38px;
+    border-bottom: 2px solid #b7b7b7;
+    overflow: hidden;
+}
+.invoice-list {
+    font-size: 14px;
+    color: #333;
+    line-height: 30px;
+    padding-left: 26px;
+    margin-right: 36px;
+	position: relative;
+	float: left;
+	padding-left: 21px;
+	cursor: pointer;
+}
+.invoice-list .active{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 16px;
+    width: 16px;
+    margin-top: -8px;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url(../img/order/checkbox_3.png);
+}
+.invoice-list i{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 16px;
+    width: 16px;
+    margin-top: -8px;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url(../img/order/checkbox_4.png);
+}
+.invoice-list span {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    top: 4px;
+}
+.invoice-list input {
+    border: 0;
+    width: 190px;
+    border: 1px solid #bdbdbd;
+    padding: 0 11px;
+    height: 28px;
+    font-size: 14px;
+    color: #999;
+    margin-left: 15px;
+}
+.total-price-box {
+    padding: 29px 0;
+    overflow: hidden;
+}
+.help-box{
+	float: left;
+	width: 300px;
+	height: 155px;
+	padding: 20px;
+	border: 1px solid #b2b2b2;
+	margin: 10px 0 90px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: relative;
+}
+.help-box h4 {
+    font-size: 16px;
+    color: #333;
+    line-height: 18px;
+    margin-bottom: 10px;
+}
+.help-box a {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    padding-left: 14px;
+}
+.help-box .havebefore:before {
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 10px;
+    width: 3px;
+    border-radius: 50%;
+    background: #424242;
+}
+.help-box a.more {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: underline;
+}
+.total-price-con span {
+    float: left;
+    display: block;
+    font-size: 24px;
+    line-height: 50px;
+    color: #333;
+    margin-right: 43px;
+}
+.total-price-con a {
+    float: left;
+    width: 198px;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background: #b63330;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+}
